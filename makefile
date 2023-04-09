@@ -1,7 +1,6 @@
 make:
-	nasm -f elf converter.asm
-	gcc -m32 -c -o wrapper.o wrapper.c
-	gcc -m32  converter.o wrapper.o -o wrapper
+	nasm -f elf32 converter.asm
+	gcc -m32 -shared -W converter.o wrapper.c -o libconvert.so
 
 debug:
 	nasm -f elf converter.asm
@@ -9,4 +8,4 @@ debug:
 	gcc -g -m32 converter.o wrapper.o -o wrapper
 
 clean:
-	rm *.o wrapper
+	rm *.o *.so wrapper

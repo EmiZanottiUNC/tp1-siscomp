@@ -7,11 +7,6 @@ asm_main:
         fld dword [ebp + 12]
         fmul ST1
         
-        sub esp, 4
-        fstp dword [esp]
-        mov eax, dword [esp]
-        add esp, 4
-        
         mov esp, ebp
         pop ebp
         ret

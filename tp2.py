@@ -7,8 +7,11 @@ def exchange(from_currency, to_currency):
         print("Limite de llamadas a API alcanzado. Intente de nuevo en 1 minuto.")
         quit()
     return float(data['Realtime Currency Exchange Rate']['5. Exchange Rate'])
-
-libconvert = ctypes.CDLL('./libconvert.so')
+try:
+    libconvert = ctypes.CDLL('./libconvert.so')
+except OSError:
+    print("Libreria 'libconvert.so' no encontrada. Ejecuto 'make'?")
+    quit()
 libconvert.convert.argtypes = (ctypes.c_float, ctypes.c_float)
 libconvert.convert.restype = (ctypes.c_float)
 

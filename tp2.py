@@ -5,7 +5,7 @@ def exchange(from_currency, to_currency):
     data = requests.get(url.format(from_currency, to_currency)).json()
     if 'Note' in data:
         print("Limite de llamadas a API alcanzado. Intente de nuevo en 1 minuto.")
-        exit
+        quit()
     return float(data['Realtime Currency Exchange Rate']['5. Exchange Rate'])
 
 libconvert = ctypes.CDLL('./libconvert.so')

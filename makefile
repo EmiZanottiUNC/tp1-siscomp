@@ -1,4 +1,5 @@
 make:
+	virtualenv -p /usr/bin/python2.7 myenv32 --system-site-packages
 	nasm -f elf32 converter.asm
 	gcc -m32 -shared -W converter.o wrapper.c -o libconvert.so
 
@@ -8,4 +9,4 @@ debug:
 	gcc -g -m32 converter.o wrapper.o -o wrapper
 
 clean:
-	rm *.o *.so wrapper
+	rm *.o *.so wrapper -rf myenv32

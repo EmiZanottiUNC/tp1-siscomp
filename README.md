@@ -22,6 +22,11 @@ print(platform.architecture())
 Debe mostrar algo como lo siguiente:
 
 ![](images/image.png)
+
+### Al ejecutar el programa de python en el entorno por primera vez se debe ejecutar el siguiente comando:
+```
+pip install requests
+```
 ### Para salir del entorno virtual:
 ```
 deactivate        
